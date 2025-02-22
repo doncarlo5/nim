@@ -19,6 +19,7 @@ import {
   EMAIL,
   SOCIAL_LINKS,
 } from './data'
+import { div } from 'motion/react-client'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -40,6 +41,10 @@ const TRANSITION_SECTION = {
 }
 
 type ProjectVideoProps = {
+  src: string
+}
+
+type ProjectImageProps = {
   src: string
 }
 
@@ -86,6 +91,14 @@ function ProjectVideo({ src }: ProjectVideoProps) {
         </MorphingDialogClose>
       </MorphingDialogContainer>
     </MorphingDialog>
+  )
+}
+
+function ProjectImage({ src }: ProjectImageProps) {
+  return (
+    <div className="relative w-full rounded-xl">
+      <img src={src} alt={src} className="w-full aspect-square rounded-xl object-cover" />
+    </div>
   )
 }
 
@@ -137,8 +150,7 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Focused on creating intuitive and performant web experiences.
-            Bridging the gap between design and development.
+          French developer with a penchant for elegant design and a fascination for new technologies. By creating stunning and user-friendly websites or app, I appreciate discovering new features.
           </p>
         </div>
       </motion.section>
@@ -152,7 +164,8 @@ export default function Personal() {
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
               <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
+                {project.video && <ProjectVideo src={project.video} />}
+                {project.image && <ProjectImage src={project.image} />}
               </div>
               <div className="px-1">
                 <a

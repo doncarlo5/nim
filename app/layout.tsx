@@ -12,9 +12,9 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Nim - Personal website template',
+  title: 'Julien Thomas - Full Stack Developer',
   description:
-    'Nim is a free and open-source personal website template built with Next.js 15, React 19 and Motion-Primitives.',
+    'Julien Thomas is a full stack developer with a passion for building beautiful and functional websites and applications.',
 }
 
 const geist = Geist({
